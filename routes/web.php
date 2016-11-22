@@ -7,4 +7,9 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'DashboardController@index');
+Route::get('home', 'DashboardController@index');
+
+Route::group(['prefix' => 'profile'], function () {
+    Route::get('index', 'ProfileController@index');
+    Route::get('chang-pass', 'ProfileController@changepass');
+});

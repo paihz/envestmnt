@@ -1,11 +1,19 @@
 <div class="be-left-sidebar">
-    <div class="left-sidebar-wrapper"><a href="#" class="left-sidebar-toggle">Dashboard</a>
+    <div class="left-sidebar-wrapper"><a href="#" class="left-sidebar-toggle">@yield('title-top')</a>
         <div class="left-sidebar-spacer">
             <div class="left-sidebar-scroll">
                 <div class="left-sidebar-content">
                     <ul class="sidebar-elements">
                         <li class="divider">Menu</li>
-                        <li class="active"><a href="index.html"><i class="icon mdi mdi-home"></i><span>Dashboard</span></a>
+                        <li class="@if(URL::current() == URL::to('home')) active @endif"><a href="{{ action('DashboardController@index') }}"><i class="icon mdi mdi-home"></i><span>Dashboard</span></a>
+                        </li>
+                        <li class="parent @if(URL::current() == url('profile/*')) open @endif"><a href="#"><i class="icon mdi mdi-face"></i><span>My Profile</span></a>
+                            <ul class="sub-menu">
+                                <li class="@if(URL::current() == action('ProfileController@index')) active @endif"><a href="{{ action('ProfileController@index') }}">View Profile</a>
+                                </li>
+                                <li class="@if(URL::current() == action('ProfileController@changepass')) active @endif"><a href="{{ action('ProfileController@changepass') }}">Change Password</a>
+                                </li>
+                            </ul>-
                         </li>
                         <li class="parent"><a href="#"><i class="icon mdi mdi-face"></i><span>UI Elements</span></a>
                             <ul class="sub-menu">
