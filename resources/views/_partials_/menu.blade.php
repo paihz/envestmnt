@@ -11,7 +11,7 @@
                             <ul class="sub-menu">
                                 <li class="@if(URL::current() == action('ProfileController@index')) active @endif"><a href="{{ action('ProfileController@index') }}">View Profile</a>
                                 </li>
-                                <li class="@if(URL::current() == action('ProfileController@changepass')) active @endif"><a href="{{ action('ProfileController@changepass') }}">Change Password</a>
+                                <li class="@if(URL::current() == action('ProfileController@changePass')) active @endif"><a href="{{ action('ProfileController@changePass') }}">Change Password</a>
                                 </li>
                             </ul>-
                         </li>

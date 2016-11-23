@@ -11,5 +11,6 @@ Route::get('home', 'DashboardController@index');
 
 Route::group(['prefix' => 'profile'], function () {
     Route::get('index', 'ProfileController@index');
-    Route::get('chang-pass', 'ProfileController@changepass');
+    Route::get('chang-pass', 'ProfileController@changePass');
+    Route::post('chang-pass', 'ProfileController@changeNewPass');
 });
