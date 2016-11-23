@@ -14,6 +14,6 @@ class ProfileController extends Controller
         return view('pages.profiles.index');
     }
     public function changepass(){
-        return view('pages.profiles.index');
+        return view('pages.profiles.changepass');
     }
 }

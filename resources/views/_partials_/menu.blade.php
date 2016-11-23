@@ -1,5 +1,5 @@
 <div class="be-left-sidebar">
-    <div class="left-sidebar-wrapper"><a href="#" class="left-sidebar-toggle">@yield('title-top')</a>
+    <div class="left-sidebar-wrapper"><a href="#" class="left-sidebar-toggle">{{ $title  or 'Dashboard'}}</a>
         <div class="left-sidebar-spacer">
             <div class="left-sidebar-scroll">
                 <div class="left-sidebar-content">

@@ -47,13 +47,15 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
-        return Validator::make($data, [
+
+        return Validator::make($data,   [
             'name' => 'required|max:255',
             'email' => 'required|email|max:255|unique:users',
             'gender'=> 'required',
-            'birthday'=> 'required',
+            'birthday'=> 'required|date',
             'password' => 'required|min:6|confirmed',
-            'terms' => 'required' // This is check checkbox is checked
+            'g-recaptcha-response' => 'required|captcha', // reCaptcha google
+            'terms' => 'accepted' // This is check checkbox is checked
         ]);
     }
 

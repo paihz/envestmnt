@@ -31,7 +31,7 @@
                     </ul>
                 </li>
             </ul>
-            <div class="page-title"><span>@yield('title-top')</span></div>
+            <div class="page-title"><span>{{ $title or 'Dashboard' }}</span></div>
         </div>
     </div>
 </nav>

@@ -1,6 +1,5 @@
-@extends('layouts.user')
-@section('title-top', 'Dashboard')
+@extends('layouts.user', ['title' => 'User Profiles'])
 
 @section('content')
-ss
+
 @endsection
