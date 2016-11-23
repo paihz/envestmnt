@@ -9,38 +9,13 @@
                         </li>
                         <li class="parent @if(URL::current() == url('profile/*')) open @endif"><a href="#"><i class="icon mdi mdi-face"></i><span>My Profile</span></a>
                             <ul class="sub-menu">
-                                <li class="@if(URL::current() == action('ProfileController@index')) active @endif"><a href="{{ action('ProfileController@index') }}">View Profile</a>
+                                <li class="@if(URL::current() == action('ProfileController@index')) active @endif"><a href="{{ action('ProfileController@index') }}">Edit Profile</a>
                                 </li>
                                 <li class="@if(URL::current() == action('ProfileController@changePass')) active @endif"><a href="{{ action('ProfileController@changePass') }}">Change Password</a>
                                 </li>
-                            </ul>-
-                        </li>
-                        <li class="parent"><a href="#"><i class="icon mdi mdi-face"></i><span>UI Elements</span></a>
-                            <ul class="sub-menu">
-                                <li><a href="ui-alerts.html">Alerts</a>
-                                </li>
-                                <li><a href="ui-buttons.html">Buttons</a>
-                                </li>
-                                <li><a href="ui-panels.html">Panels</a>
-                                </li>
-                                <li><a href="ui-general.html">General</a>
-                                </li>
-                                <li><a href="ui-modals.html">Modals</a>
-                                </li>
-                                <li><a href="ui-notifications.html">Notifications</a>
-                                </li>
-                                <li><a href="ui-icons.html">Icons</a>
-                                </li>
-                                <li><a href="ui-grid.html">Grid</a>
-                                </li>
-                                <li><a href="ui-tabs-accordions.html">Tabs &amp; Accordions</a>
-                                </li>
-                                <li><a href="ui-nestable-lists.html">Nestable Lists</a>
-                                </li>
-                                <li><a href="ui-typography.html"><span class="label label-primary pull-right">New</span>Typography</a>
-                                </li>
                             </ul>
                         </li>
+                        <li><a href="javascript:void(0)" data-toggle="modal" data-target="#md-footer-primary"><span class="icon mdi mdi-power"></span> Logout</a></li>
                         <li class="parent"><a href="charts.html"><i class="icon mdi mdi-chart-donut"></i><span>Charts</span></a>
                             <ul class="sub-menu">
                                 <li><a href="charts-flot.html">Flot</a>
@@ -154,6 +129,33 @@
                         </li>
                     </ul>
                 </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="md-footer-primary" tabindex="-1" role="dialog" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" data-dismiss="modal" aria-hidden="true" class="close"><span class="mdi mdi-close"></span></button>
+            </div>
+            <div class="modal-body">
+                <div class="text-center">
+                    <div class="text-warning"><span class="modal-main-icon mdi mdi-power"></span></div>
+
+                    <h4>Are you sure want to log out from dashboard?</h4>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" data-dismiss="modal" class="btn btn-default">Cancel</button>
+                <a class="btn btn-primary"" href="{{ url('/logout') }}"
+                   onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                     Logout
+                </a>
+                <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
+                    {{ csrf_field() }}
+                </form>
             </div>
         </div>
     </div>

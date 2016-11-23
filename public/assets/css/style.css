@@ -12075,6 +12075,7 @@ li.L9 {
 .user-display-bottom {
   position: relative;
   padding: 11px 20px;
+  height: 86px;
 }
 .user-display-avatar {
   position: absolute;

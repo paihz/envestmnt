@@ -31,7 +31,7 @@
     <link rel="stylesheet" type="text/css"
           href="{{ asset('assets/lib/datetimepicker/css/bootstrap-datetimepicker.min.css') }}"/>
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}" type="text/css"/>
-
+    @yield('css')
 </head>
 <body>
 <div class="be-wrapper be-fixed-sidebar">
@@ -56,6 +56,7 @@
 <script src="{{ asset('assets/lib/jqvmap/jquery.vmap.min.js') }}" type="text/javascript"></script>
 <script src="{{ asset('assets/lib/jqvmap/maps/jquery.vmap.world.js') }}" type="text/javascript"></script>
 <script src="{{ asset('assets/js/app-dashboard.js') }}" type="text/javascript"></script>
+@yield('js')
 <script type="text/javascript">
     $(document).ready(function () {
         //initialize the javascript

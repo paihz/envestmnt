@@ -39,4 +39,10 @@ class ProfileController extends Controller
             return back();
         }
     }
+    public function bankAccount(){
+        return view('');
+    }
+    public function bankAccountAdd(){
+
+    }
 }
