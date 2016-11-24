@@ -15,7 +15,10 @@ class ProfileController extends Controller
         $this->middleware('auth');
     }
     public function index(){
-        return view('pages.profiles.index');
+        return view('pages.profiles.editprofile');
+    }
+    public function editProfile(){
+
     }
     public function changePass(){
         return view('pages.profiles.changepass');
@@ -39,10 +42,5 @@ class ProfileController extends Controller
             return back();
         }
     }
-    public function bankAccount(){
-        return view('');
-    }
-    public function bankAccountAdd(){
 
-    }
 }

@@ -7,7 +7,7 @@
                         <li class="divider">Menu</li>
                         <li class="@if(URL::current() == URL::to('home')) active @endif"><a href="{{ action('DashboardController@index') }}"><i class="icon mdi mdi-home"></i><span>Dashboard</span></a>
                         </li>
-                        <li class="parent @if(URL::current() == url('profile/*')) open @endif"><a href="#"><i class="icon mdi mdi-face"></i><span>My Profile</span></a>
+                        <li class="parent @if(URL::current() == url('profile/*')) open @endif"><a href="#"><i class="icon mdi mdi-account-o"></i> <span> My Profile</span></a>
                             <ul class="sub-menu">
                                 <li class="@if(URL::current() == action('ProfileController@index')) active @endif"><a href="{{ action('ProfileController@index') }}">Edit Profile</a>
                                 </li>
@@ -15,77 +15,16 @@
                                 </li>
                             </ul>
                         </li>
+                        <li class="parent "><a href="#"><i class="icon mdi mdi-check-all"></i><span>Investment</span></a>
+                            <ul class="sub-menu">
+                                <li class=""><a href="{{ action('ProfileController@index') }}">Join share</a>
+                                </li>
+                                <li class=""><a href="{{ action('ProfileController@changePass') }}">Withdrawal</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="@if(URL::current() == url('history')) active @endif"><a href="#"><i class="icon mdi mdi-book"></i><span>History</span></a></li>
                         <li><a href="javascript:void(0)" data-toggle="modal" data-target="#md-footer-primary"><span class="icon mdi mdi-power"></span> Logout</a></li>
-                        <li class="parent"><a href="charts.html"><i class="icon mdi mdi-chart-donut"></i><span>Charts</span></a>
-                            <ul class="sub-menu">
-                                <li><a href="charts-flot.html">Flot</a>
-                                </li>
-                                <li><a href="charts-sparkline.html">Sparklines</a>
-                                </li>
-                                <li><a href="charts-chartjs.html">Chart.js</a>
-                                </li>
-                                <li><a href="charts-morris.html">Morris.js</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="parent"><a href="#"><i class="icon mdi mdi-dot-circle"></i><span>Forms</span></a>
-                            <ul class="sub-menu">
-                                <li><a href="form-elements.html">Elements</a>
-                                </li>
-                                <li><a href="form-validation.html">Validation</a>
-                                </li>
-                                <li><a href="form-wizard.html">Wizard</a>
-                                </li>
-                                <li><a href="form-masks.html">Input Masks</a>
-                                </li>
-                                <li><a href="form-wysiwyg.html">WYSIWYG Editor</a>
-                                </li>
-                                <li><a href="form-upload.html">Multi Upload</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="parent"><a href="#"><i class="icon mdi mdi-border-all"></i><span>Tables</span></a>
-                            <ul class="sub-menu">
-                                <li><a href="tables-general.html">General</a>
-                                </li>
-                                <li><a href="tables-datatables.html">Data Tables</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="parent"><a href="#"><i class="icon mdi mdi-layers"></i><span>Pages</span></a>
-                            <ul class="sub-menu">
-                                <li><a href="pages-blank.html">Blank Page</a>
-                                </li>
-                                <li><a href="pages-blank-header.html">Blank Page Header</a>
-                                </li>
-                                <li><a href="pages-login.html">Login</a>
-                                </li>
-                                <li><a href="pages-login2.html">Login v2</a>
-                                </li>
-                                <li><a href="pages-404.html">404 Page</a>
-                                </li>
-                                <li><a href="pages-sign-up.html">Sign Up</a>
-                                </li>
-                                <li><a href="pages-forgot-password.html">Forgot Password</a>
-                                </li>
-                                <li><a href="pages-profile.html">Profile</a>
-                                </li>
-                                <li><a href="pages-pricing-tables.html">Pricing Tables</a>
-                                </li>
-                                <li><a href="pages-pricing-tables2.html">Pricing Tables v2</a>
-                                </li>
-                                <li><a href="pages-timeline.html"><span class="label label-primary pull-right">New</span>Timeline</a>
-                                </li>
-                                <li><a href="pages-timeline2.html"><span class="label label-primary pull-right">New</span>Timeline v2</a>
-                                </li>
-                                <li><a href="pages-invoice.html"><span class="label label-primary pull-right">New</span>Invoice</a>
-                                </li>
-                                <li><a href="pages-calendar.html">Calendar</a>
-                                </li>
-                                <li><a href="pages-gallery.html">Gallery</a>
-                                </li>
-                            </ul>
-                        </li>
                         <li class="divider">Features</li>
                         <li class="parent"><a href="#"><i class="icon mdi mdi-inbox"></i><span>Email</span></a>
                             <ul class="sub-menu">

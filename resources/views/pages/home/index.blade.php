@@ -96,7 +96,7 @@
                                         <td>{{ $mobile or 'Not set' }}</td>
                                     </tr>
                                     <tr>
-                                        <td class="icon"><span class="mdi mdi-globe-alt"></span></td>
+                                        <td class="icon"><span class="mdi mdi-pin-drop"></span></td>
                                         <td class="item">Location<span class="icon s7-map-marker"></span></td>
                                         <td>{{ $location or 'Not set' }}</td>
                                     </tr>
