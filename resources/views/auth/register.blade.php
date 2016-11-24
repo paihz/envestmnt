@@ -80,7 +80,7 @@
                             <div class="form-group">
                                 <div data-min-view="2" data-date-format="yyyy-mm-dd"
                                      class="input-group date datetimepicker">
-                                    <input size="16" value="{{ old('birthday') }}" Your birthday" name="birthday" type="text"
+                                    <input size="16" placeholder="Your birthday" value="{{ old('birthday') }}" name="birthday" type="text"
                                            class="form-control"><span class="input-group-addon btn btn-primary"><i
                                                 class="icon-th mdi mdi-calendar"></i></span>
                                 </div>
@@ -111,9 +111,9 @@
                                 <!-- reCapatcha -->
                                 <div id="capatcha">
                                 {!! app('captcha')->display(); !!}
-                                @if ($errors->has('g-recaptcha-response'))
+                                @if ($errors->has('email'))
                                     <span class="text-danger">
-                                        <strong>{{ $errors->first('g-recaptcha-response') }}</strong>
+                                        <strong>{{ $errors->first('email') }}</strong>
                                     </span>
                                 @endif
                                 </div>
@@ -125,7 +125,7 @@
                                             conditions</a>.</label>
                                 </div>
                                 @if ($errors->has('terms'))
-                                    <span class="text-danger">
+                                    <span class="help-block">
                                         <strong>{{ $errors->first('terms') }}</strong>
                                     </span>
                                 @endif

@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Carbon\Carbon;
 use Auth;
 Use App\User;
-
+use App\Profile;
 class DashboardController extends Controller
 {
     /**
@@ -26,9 +26,10 @@ class DashboardController extends Controller
      */
     public function index()
     {
-
+       // $data["mobile"] = Auth::user()->profile->phone ;
+       // $data["location"] = Auth::user()->profile->location ;
        $dob  = date('Y', strtotime(Auth::user()->birthday));
-      $yearnow = Carbon::now()->year;
+       $yearnow = Carbon::now()->year;
        $data['age'] =  $yearnow - $dob;
        return view('pages.home.index', $data);
     }
