@@ -30,4 +30,7 @@ class User extends Authenticatable
     public function profile(){
         return $this->hasOne(Profile::class);
     }
+    public function bank(){
+        return $this->hasOne(Bank::class);
+    }
 }

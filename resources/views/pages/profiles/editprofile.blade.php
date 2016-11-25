@@ -76,9 +76,9 @@
                                             <div class="col-sm-6">
                                                 <div data-min-view="2" data-date-format="yyyy-mm-dd"
                                                      class="input-group date datetimepicker">
+                                                    <span class="input-group-addon btn btn-primary"><i class="icon-th mdi mdi-calendar"></i></span>
                                                     <input size="16" value="{{ Auth::user()->birthday }}"  name="birthday" type="text"
                                                     class="form-control">
-                                                    <span class="input-group-addon btn btn-primary"><i class="icon-th mdi mdi-calendar"></i></span>
                                                 </div>
                                         </div>
                                         </div>

@@ -25,13 +25,11 @@
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-    <link rel="stylesheet" type="text/css"
-          href="{{ asset('assets/lib/jquery.vectormap/jquery-jvectormap-1.2.2.css') }}"/>
-    <link rel="stylesheet" type="text/css" href="{{ asset('assets/lib/jqvmap/jqvmap.min.css') }}"/>
-    <link rel="stylesheet" type="text/css"
-          href="{{ asset('assets/lib/datetimepicker/css/bootstrap-datetimepicker.min.css') }}"/>
+    <link rel="stylesheet" type="text/css"  href="{{ asset('assets/lib/datetimepicker/css/bootstrap-datetimepicker.min.css') }}"/>
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/lib/select2/css/select2.min.css') }}"/>
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}" type="text/css"/>
     @yield('css')
+
 </head>
 <body>
 <div class="be-wrapper be-fixed-sidebar">
@@ -45,16 +43,10 @@
         type="text/javascript"></script>
 <script src="{{ asset('assets/js/main.js') }}" type="text/javascript"></script>
 <script src="{{ asset('assets/lib/bootstrap/dist/js/bootstrap.min.js') }}" type="text/javascript"></script>
-<script src="{{ asset('assets/lib/jquery-flot/jquery.flot.js') }}" type="text/javascript"></script>
-<script src="{{ asset('assets/lib/jquery-flot/jquery.flot.pie.js') }}" type="text/javascript"></script>
-<script src="{{ asset('assets/lib/jquery-flot/jquery.flot.resize.js') }}" type="text/javascript"></script>
-<script src="{{ asset('assets/lib/jquery-flot/plugins/jquery.flot.orderBars.js') }}" type="text/javascript"></script>
-<script src="{{ asset('assets/lib/jquery-flot/plugins/curvedLines.js') }}" type="text/javascript"></script>
 <script src="{{ asset('assets/lib/jquery.sparkline/jquery.sparkline.min.js') }}" type="text/javascript"></script>
 <script src="{{ asset('assets/lib/countup/countUp.min.js') }}" type="text/javascript"></script>
 <script src="{{ asset('assets/lib/jquery-ui/jquery-ui.min.js') }}" type="text/javascript"></script>
-<script src="{{ asset('assets/lib/jqvmap/jquery.vmap.min.js') }}" type="text/javascript"></script>
-<script src="{{ asset('assets/lib/jqvmap/maps/jquery.vmap.world.js') }}" type="text/javascript"></script>
+
 <script src="{{ asset('assets/js/app-dashboard.js') }}" type="text/javascript"></script>
 @yield('js')
 <script type="text/javascript">

@@ -148,25 +148,25 @@ var App = (function () {
         [9, 30]
       ];
 
-      var plot_statistics = $.plot("#main-chart", 
+      var plot_statistics = $.plot("#main-chart",
         [
         {
-          data: data, 
+          data: data,
           canvasRender: true
         },
         {
-          data: data2, 
+          data: data2,
           canvasRender: true
         },
         {
-          data: data3, 
+          data: data3,
           canvasRender: true
         }
         ], {
         series: {
           lines: {
             show: true,
-            lineWidth: 0, 
+            lineWidth: 0,
             fill: true,
             fillColor: { colors: [{ opacity: 1 }, { opacity: 1 }] }
           },
@@ -236,28 +236,7 @@ var App = (function () {
       var color2 = App.color.warning;
       var color3 = App.color.primary;
 
-      $.plot('#top-sales', data, {
-        series: {
-          pie: {
-            radius: 0.75,
-            innerRadius: 0.58,
-            show: true,
-            highlight: {
-              opacity: 0.1
-            },
-            label: {
-              show: false
-            }
-          }
-        },
-        grid:{
-          hoverable: true,
-        },
-        legend:{
-          show: false
-        },
-        colors: [color1, color2, color3]
-      });
+
 
       //Chart legend color setter
       $('[data-color="top-sales-color1"]').css({'background-color':color1});
@@ -317,37 +296,6 @@ var App = (function () {
       }
     }
 
-    //Map widget
-    function map(){
-
-      var color1 = tinycolor( App.color.primary ).lighten( 15 ).toHexString();
-      var color2 = tinycolor( App.color.primary ).lighten( 8 ).toHexString();
-      var color3 = tinycolor( App.color.primary ).toHexString();
-
-      //Highlight data
-      var data = {
-        "ru": "14",
-        "us": "14",
-        "ca": "10",
-        "br": "10",
-        "au": "11",
-        "uk": "3",
-        "cn": "12"
-      };
-
-      $('#map-widget').vectorMap({
-        map: 'world_en',
-        backgroundColor: null,
-        color: color1,
-        hoverOpacity: 0.7,
-        selectedColor: color2,
-        enableZoom: true,
-        showTooltip: true,
-        values: data,
-        scaleColors: [color1, color2],
-        normalizeFunction: 'polynomial'
-      });
-    }
 
     //CounterUp Init
     counter();
@@ -358,15 +306,11 @@ var App = (function () {
     //Row 1
     sparklines();
 
-	  //Row 2
-    mainChart();
-
 	  //Row 4
     topSales();
     calendar();
 
-    //Row 5
-    map();
+
 
   };
 
