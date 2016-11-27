@@ -19,4 +19,8 @@ Route::group(['prefix' => 'profile'], function () {
     //bank
     Route::get('bank-detail', 'BankController@index');
     Route::post('bank-detail', 'BankController@simpanBank');
+    Route::delete('bank-detail/{id}', 'BankController@buangBank');
+});
+Route::group(['prefix' => 'invest'], function () {
+
 });

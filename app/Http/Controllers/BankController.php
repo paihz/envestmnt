@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+Use App\Bank;
 use Illuminate\Http\Request;
 Use Illuminate\Support\Facades\Auth;
 use DB;
@@ -31,30 +31,36 @@ class BankController extends Controller
             'RHB BANK BERHAD' => 'RHB BANK BERHAD'
         ];
         $userID = Auth::id();
-        $data["adaUserID"] = DB::table('banks')->where('user_id', '=', $userID )->exists();
+        $data['adaUserID'] = DB::table('banks')->where('user_id', '=', $userID )->exists();
         return view('pages.bank.index', $data);
     }
     public function simpanBank(Request $request)
     {
         $this->validate($request, [
-            'bankowner' => 'required|min:5',
-            'bankname' => 'required',
-            'bankaccnum' => 'required|min:6|max:20'
-
-
-
+            'beneficiary_name' => 'required|min:5',
+            'bank_name' => 'required',
+            'bank_account_number' => 'required|min:6|max:25'
         ]);
 
-        $bankdetail = Bankaccount::create([
-            'bankowner' => $request->bankowner,
-            'bankname' => $request->bankname,
-            'bankaccnum' => $request->bankaccnum,
-            'swiftcode' => $request->swiftcode,
-            'user_id' => Auth::user()->id]);
-
-        $bankdetail->save();
+        $request->user()->bank()->create([
+            'bankowner' => $request->beneficiary_name,
+            'bankname' => $request->bank_name,
+            'bankaccnum' => $request->bank_account_number,
+            'swiftcode' => $request->swift_code,
+            'user_id' => Auth::id()
+        ]);
 
         session()->flash('message', 'Nice, You have been add new bank detail');
-        return redirect()->action('BankaccountController@index');
+
+        return back();
+    }
+    public  function buangBank($id){
+        $buang = Bank::findOrFail($id);
+        $buang->delete();
+
+        session()->flash('message', 'You just delete your bank info. Please add latest bank info');
+
+        return back();
+
     }
 }

@@ -21,7 +21,7 @@
           href="{{ asset('assets/lib/datetimepicker/css/bootstrap-datetimepicker.min.css') }}"/>
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}" type="text/css"/>
     <style>
-        .g-recaptcha{
+        .g-recaptcha {
             margin: 15px auto !important;
             width: auto !important;
             height: auto !important;
@@ -80,9 +80,11 @@
                             <div class="form-group">
                                 <div data-min-view="2" data-date-format="yyyy-mm-dd"
                                      class="input-group date datetimepicker">
-                                    <input size="16" placeholder="Your birthday" value="{{ old('birthday') }}" name="birthday" type="text"
-                                           class="form-control"><span class="input-group-addon btn btn-primary"><i
+                                    <span class="input-group-addon btn btn-primary"><i
                                                 class="icon-th mdi mdi-calendar"></i></span>
+                                    <input size="16" placeholder="Your birthday" value="{{ old('birthday') }}"
+                                           name="birthday" type="text"
+                                           class="form-control">
                                 </div>
                                 @if ($errors->has('birthday'))
                                     <span class="text-danger">
@@ -95,27 +97,28 @@
                                 <div class="col-xs-6">
                                     <input type="password" required name="password" class="form-control"
                                            placeholder="Password">
-                                    @if ($errors->has('password'))
-                                        <span class="help-block">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
-                                    @endif
+
                                 </div>
                                 <div class="col-xs-6">
                                     <input type="password" required name="password_confirmation" class="form-control"
                                            placeholder="Confirm password">
                                 </div>
                             </div>
+                            @if ($errors->has('password'))
+                                <span class="text-danger">
+                                        <strong>{{ $errors->first('password') }}</strong>
+                                    </span>
+                            @endif
                             <hr>
                             <div class="form-group">
                                 <!-- reCapatcha -->
                                 <div id="capatcha">
-                                {!! app('captcha')->display(); !!}
-                                @if ($errors->has('email'))
-                                    <span class="text-danger">
+                                    {!! app('captcha')->display(); !!}
+                                    @if ($errors->has('email'))
+                                        <span class="text-danger">
                                         <strong>{{ $errors->first('email') }}</strong>
                                     </span>
-                                @endif
+                                    @endif
                                 </div>
                             </div>
                             <div class="form-group xs-pt-10">
@@ -125,7 +128,7 @@
                                             conditions</a>.</label>
                                 </div>
                                 @if ($errors->has('terms'))
-                                    <span class="help-block">
+                                    <span class="text-danger">
                                         <strong>{{ $errors->first('terms') }}</strong>
                                     </span>
                                 @endif

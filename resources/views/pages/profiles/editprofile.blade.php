@@ -161,7 +161,7 @@
                                             @if ($errors->has('location'))<span
                                                     class="help-block text-danger">    <strong>{{ $errors->first('location') }}</strong></span>  @endif
                                         </div>
-                                    </div> d
+                                    </div>
                                     <div class="form-group">
                                         <div class="col-sm-6 col-sm-offset-3">
                                             <button class='btn btn-lg btn-facebook pull-right' type="submit">Create
