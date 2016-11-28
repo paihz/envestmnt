@@ -31,5 +31,5 @@ Route::group(['prefix' => 'view'], function () {
     //request withdrawal
     Route::get('withdrawal', 'WithdrawController@create');
     Route::post('withdrawal', 'WithdrawController@store');
-    Route::get('withdrawal', 'WithdrawController@view');
+    Route::get('request-withdrawal', 'WithdrawController@view');
 });

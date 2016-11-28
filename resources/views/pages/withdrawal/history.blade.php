@@ -9,7 +9,7 @@
 @section('content')
     <div class="be-content">
         <div class="main-content container-fluid">
-            ss
+            w
         </div>
     </div>
 @endsection
