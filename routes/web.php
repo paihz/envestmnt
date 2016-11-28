@@ -21,6 +21,15 @@ Route::group(['prefix' => 'profile'], function () {
     Route::post('bank-detail', 'BankController@simpanBank');
     Route::delete('bank-detail/{id}', 'BankController@buangBank');
 });
-Route::group(['prefix' => 'invest'], function () {
+Route::group(['prefix' => 'view'], function () {
+    //start invest
+    Route::get('deposit', 'ShareController@deposit');
+    Route::post('deposit', 'ShareController@depositSaved');
+    //history
+    Route::get('fund-history', 'ShareController@history');
 
+    //request withdrawal
+    Route::get('withdrawal', 'WithdrawController@create');
+    Route::post('withdrawal', 'WithdrawController@store');
+    Route::get('withdrawal', 'WithdrawController@view');
 });

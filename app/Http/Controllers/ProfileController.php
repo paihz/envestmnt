@@ -60,7 +60,6 @@ class ProfileController extends Controller
             'id' => Auth::id(),
             'name' => $request->name,
             'gender' => $request->gender,
-            'birthdate' => $request->birthdate,
         ]);
         $userprofile->update ([
            // 'user_id' => 2,//Auth::id(),

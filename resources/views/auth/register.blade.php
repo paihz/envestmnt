@@ -77,22 +77,6 @@
                                     </span>
                                 @endif
                             </div>
-                            <div class="form-group">
-                                <div data-min-view="2" data-date-format="yyyy-mm-dd"
-                                     class="input-group date datetimepicker">
-                                    <span class="input-group-addon btn btn-primary"><i
-                                                class="icon-th mdi mdi-calendar"></i></span>
-                                    <input size="16" placeholder="Your birthday" value="{{ old('birthday') }}"
-                                           name="birthday" type="text"
-                                           class="form-control">
-                                </div>
-                                @if ($errors->has('birthday'))
-                                    <span class="text-danger">
-                                        <strong>{{ $errors->first('birthday') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-
                             <div class="form-group row ">
                                 <div class="col-xs-6">
                                     <input type="password" required name="password" class="form-control"

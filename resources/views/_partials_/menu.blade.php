@@ -7,7 +7,7 @@
                         <li class="divider">Menu</li>
                         <li class="@if(URL::current() == URL::to('home')) active @endif"><a href="{{ action('DashboardController@index') }}"><i class="icon mdi mdi-home"></i><span>Dashboard</span></a>
                         </li>
-                        <li class="parent @if(URL::current() == url('profile/*')) open @endif"><a href="#"><i class="icon mdi mdi-account-o"></i> <span> My Profile</span></a>
+                        <li class="parent @if(URL::current() == url('profile/*')) open @endif"><a href="javascript:void(0)"><i class="icon mdi mdi-account-o"></i> <span> My Profile</span></a>
                             <ul class="sub-menu">
                                 <li class="@if(URL::current() == action('ProfileController@index')) active @endif"><a href="{{ action('ProfileController@index') }}">Edit Profile</a>
                                 </li>
@@ -17,15 +17,23 @@
                                 </li>
                             </ul>
                         </li>
-                        <li class="parent "><a href="javascript:void(0)"><i class="icon mdi mdi-check-all"></i><span>Investment</span></a>
+                        <li class="divider">Investment</li>
+                        <li class="parent @if(URL::current() == url('view/*')) open @endif"><a href="javascript:void(0)"><i class="icon mdi mdi-plus-square"></i><span>Deposit</span></a>
                             <ul class="sub-menu">
-                                <li class=""><a href="{{ action('ProfileController@index') }}">Join share</a>
+                                <li class="@if(URL::current() == action('ShareController@deposit')) active @endif"><a href="{{ action('ShareController@deposit') }}">Make fund </a>
                                 </li>
-                                <li class=""><a href="{{ action('ProfileController@changePass') }}">Withdrawal</a>
+                                <li class="@if(URL::current() == action('ShareController@history')) active @endif"><a href="{{ action('ShareController@history') }}">History of funds </a>
                                 </li>
                             </ul>
                         </li>
-                        <li class="@if(URL::current() == url('history')) active @endif"><a href="javascript:void(0)"><i class="icon mdi mdi-book"></i><span>History</span></a></li>
+                        <li class="parent @if(URL::current() == url('view/*')) open @endif"><a href="javascript:void(0)"><i class="icon mdi mdi-plus-square"></i><span>Withdrawal</span></a>
+                            <ul class="sub-menu">
+                                <li class="@if(URL::current() == action('WithdrawController@create')) active @endif"><a href="{{ action('WithdrawController@create') }}">Make fund </a>
+                                </li>
+                                <li class="@if(URL::current() == action('WithdrawController@view')) active @endif"><a href="{{ action('WithdrawController@view') }}">History of funds </a>
+                                </li>
+                            </ul>
+                        </li>
                         <li class=""><a href="javascript:void(0)"><i class="icon mdi mdi-accounts-add"></i><span>Referral</span></a>
                         <li><a href="javascript:void(0)" data-toggle="modal" data-target="#md-footer-primary"><span class="icon mdi mdi-power"></span> Logout</a></li>
                     </ul>

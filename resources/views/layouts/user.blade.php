@@ -16,7 +16,7 @@
     <meta name="application-name" content="s">
     <meta name="theme-color" content="#ffffff">
 
-    <title>{{  $titles or 'Investors\'s Dashboard' }} &bullet; Invest NOW </title>
+    <title>{{  $title or 'Investors\'s Dashboard' }} &bullet; Invest NOW </title>
     <link rel="stylesheet" type="text/css"
           href="{{ asset('assets/lib/perfect-scrollbar/css/perfect-scrollbar.min.css') }}"/>
     <link rel="stylesheet" type="text/css"
@@ -27,8 +27,9 @@
     <![endif]-->
     <link rel="stylesheet" type="text/css"  href="{{ asset('assets/lib/datetimepicker/css/bootstrap-datetimepicker.min.css') }}"/>
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/lib/select2/css/select2.min.css') }}"/>
-    <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}" type="text/css"/>
     @yield('css')
+    <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}" type="text/css"/>
+
 
 </head>
 <body>
@@ -46,7 +47,6 @@
 <script src="{{ asset('assets/lib/jquery.sparkline/jquery.sparkline.min.js') }}" type="text/javascript"></script>
 <script src="{{ asset('assets/lib/countup/countUp.min.js') }}" type="text/javascript"></script>
 <script src="{{ asset('assets/lib/jquery-ui/jquery-ui.min.js') }}" type="text/javascript"></script>
-
 <script src="{{ asset('assets/js/app-dashboard.js') }}" type="text/javascript"></script>
 @yield('js')
 <script type="text/javascript">

@@ -6,7 +6,6 @@
 @section('js')
     <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBBeLH-55O_qIuO-uZmPmK9F5JtWflPQC8&sensor=true&libraries=places"></script>
     <script src="{{ asset('assets/js/jquery.placepicker.min.js') }}"></script>
-    <script src="{{ asset('assets/lib/datetimepicker/js/bootstrap-datetimepicker.min.js') }}"></script>
     <script src="{{ asset('assets/js/app-form-elements.js') }}" type="text/javascript"></script>
     <script>
         $(function () {
@@ -71,17 +70,6 @@
                                                    readonly>
                                         </div>
                                     </div>
-                                        <div class="form-group">
-                                            <label class="col-sm-3 control-label">Birthday</label>
-                                            <div class="col-sm-6">
-                                                <div data-min-view="2" data-date-format="yyyy-mm-dd"
-                                                     class="input-group date datetimepicker">
-                                                    <span class="input-group-addon btn btn-primary"><i class="icon-th mdi mdi-calendar"></i></span>
-                                                    <input size="16" value="{{ Auth::user()->birthday }}"  name="birthday" type="text"
-                                                    class="form-control">
-                                                </div>
-                                        </div>
-                                        </div>
                                     <div class="form-group">
                                         <label class="col-sm-3 control-label">Gender</label>
                                         <div class="col-sm-6">

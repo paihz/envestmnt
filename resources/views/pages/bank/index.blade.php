@@ -19,9 +19,7 @@
                     <div class="content">
                         <p>You need to enter your banking information into the Dashboard so we can transfer your earnings</p>
                         <p>At <i>bank detail</i> section, you can add, delete and update your Banking Information</p>
-
                             <p>Enter your beneficiary of your name and account number. You can find this information on one of your personal checks, or get it by contacting your bank.</p>
-
                         <hr>
                         <img src="{{ asset('assets/img/bank-list-m.png') }}" class="img-responsive" alt="banks">
                     </div>

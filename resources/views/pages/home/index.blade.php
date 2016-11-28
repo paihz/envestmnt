@@ -1,4 +1,4 @@
-@extends('layouts.user', ['title' => 'User Profiles'])
+@extends('layouts.user', ['title' => 'Dashboard'])
 @section('css')
 
 @endsection
@@ -71,9 +71,7 @@
                                 <div class="user-display-info">
                                     <div class="name"><span class="mdi mdi-account"></span> {{ Auth::user()->name }}
                                     </div>
-                                    <div class="nick">{{ $age }} years old</div>
                                 </div>
-
                             </div>
                         </div>
                         <div class="user-info-list panel panel-default">
@@ -84,11 +82,6 @@
                                         <td class="icon"><span class="mdi mdi-account-box-mail"></span></td>
                                         <td class="item">Email<span class="icon s7-portfolio"></span></td>
                                         <td>{{ Auth::user()->email }}</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="icon"><span class="mdi mdi-cake"></span></td>
-                                        <td class="item">Birthday<span class="icon s7-gift"></span></td>
-                                        <td>{{ date_format(date_create(Auth::user()->birthday),"d M Y") }}</td>
                                     </tr>
                                     <tr>
                                         <td class="icon"><span class="mdi mdi-smartphone-android"></span></td>
@@ -182,7 +175,5 @@
                 </div>
             </div>
         </div>
-    </div>
-    </div>
     </div>
 @endsection
