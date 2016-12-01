@@ -33,3 +33,6 @@ Route::group(['prefix' => 'view'], function () {
     Route::post('withdrawal', 'WithdrawController@store');
     Route::get('request-withdrawal', 'WithdrawController@view');
 });
+    // referrals link was here
+    Route::get('referrals', 'InviteController@index') ; // remember hard code at upper line first.
+    Route::get('ref/{invitecode}', 'InviteController@registerRef') ;

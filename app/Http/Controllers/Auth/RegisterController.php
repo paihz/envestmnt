@@ -65,10 +65,20 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        $characters = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        $charactersLength = strlen($characters);
+        $randomString = '';
+        for ($i = 0; $i < 7 ; $i++) {
+            $randomString .= $characters[rand(0, $charactersLength - 1)];
+        }
+        $generateRef = "REF{$randomString}";
+
         return User::create([
-            'name' => $data['name'],
+            'name' => ucwords($data['name']),
             'email' => $data['email'],
             'gender' => $data['gender'],
+            'invite_id' => $data['invite_id'],
+            'invite_code' => $generateRef,
             'password' => bcrypt($data['password']),
         ]);
     }

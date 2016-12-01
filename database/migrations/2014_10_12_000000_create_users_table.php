@@ -19,6 +19,8 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->string('gender');
             $table->boolean('is_admin')->default(0);
+            $table->integer('invite_id')->default(0);  // On hold
+            $table->string('invite_code');
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();

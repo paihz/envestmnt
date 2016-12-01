@@ -34,7 +34,7 @@
                                 </li>
                             </ul>
                         </li>
-                        <li class=""><a href="javascript:void(0)"><i class="icon mdi mdi-accounts-add"></i><span>Referral</span></a>
+                        <li class="@if(URL::current() == action('InviteController@index') ) active @endif"><a href="{{ action('InviteController@index') }}"><i class="icon mdi mdi-accounts-add"></i><span>Referral</span></a>
                         <li><a href="javascript:void(0)" data-toggle="modal" data-target="#md-footer-primary"><span class="icon mdi mdi-power"></span> Logout</a></li>
                     </ul>
                 </div>
@@ -57,7 +57,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" data-dismiss="modal" class="btn btn-default">Cancel</button>
-                <a class="btn btn-primary"" href="{{ url('/logout') }}"
+                <a class="btn btn-primary" href="{{ url('/logout') }}"
                    onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                      Logout

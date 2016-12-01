@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="shortcut icon" href="{{ asset('favicon.ico') }}">
-    <title>Register</title>
+    <title>Register new account</title>
     <link rel="stylesheet" type="text/css"
           href="{{ asset('assets/lib/perfect-scrollbar/css/perfect-scrollbar.min.css') }}"/>
     <link rel="stylesheet" type="text/css"
@@ -27,8 +27,6 @@
             height: auto !important;
             text-align: -webkit-center;
             text-align: -moz-center;
-            text-align: -o-center;
-            text-align: -ms-center;
         }
     </style>
 </head>
@@ -44,7 +42,7 @@
                     <div class="panel-body">
                         <form role="form" method="POST" action="{{ url('/register') }}">
                             <span class="splash-title xs-pb-20">Sign Up</span>
-                            {{ csrf_field() }}
+                                {{ csrf_field() }}
                             <div class="form-group">
                                 <input type="text" name="name" required value="{{ old('name') }}"
                                        placeholder="Full name" autocomplete="off"
@@ -55,6 +53,7 @@
                                     </span>
                                 @endif
                             </div>
+                            <input type="hidden" name="invite_id" value="0" />
                             <div class="form-group">
                                 <input type="email" name="email" value="{{ old('email') }}" required
                                        placeholder="E-mail" autocomplete="off"
@@ -97,10 +96,10 @@
                             <div class="form-group">
                                 <!-- reCapatcha -->
                                 <div id="capatcha">
-                                    {!! app('captcha')->display(); !!}
-                                    @if ($errors->has('email'))
+                                    {!! app('captcha')->display() !!}
+                                    @if ($errors->has('g-recaptcha-response'))
                                         <span class="text-danger">
-                                        <strong>{{ $errors->first('email') }}</strong>
+                                        <strong>{{ $errors->first('g-recaptcha-response') }}</strong>
                                     </span>
                                     @endif
                                 </div>
