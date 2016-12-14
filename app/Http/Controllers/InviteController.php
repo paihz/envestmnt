@@ -10,7 +10,7 @@ class InviteController extends Controller
     public function __construct()
     {
         $this->middleware('auth')->except('registerRef');
-        $this->middleware('guest')->only('registerRef');
+       // $this->middleware('guest')->only('registerRef');
     }
     public function index(){
         return view('pages.referral.index');

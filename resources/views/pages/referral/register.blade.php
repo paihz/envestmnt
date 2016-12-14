@@ -148,7 +148,7 @@
                                             <hr>
                                             <div class="form-group text-left">
                                                 <p class="smallest-text terms text-left" style="margin-top: 10px;">
-                                                    <input type="checkbox" id="" name="terms">  I have read and agree to the <a href="#">Privacy Policy</a>
+                                                    <input type="checkbox" id="" name="terms">  I have read and agree to the <a href="#">Privacy Policy</a><br>
                                                     @if ($errors->has('terms'))
                                                         <span class="text-danger">
                                                                     <strong>{{ $errors->first('terms') }}</strong>
@@ -175,7 +175,7 @@
 </div>
 <div id="wrapper-bottom">
     <div id="footer-content">
-        <div class="container"/>
+        <div class="container">
         <div class="row">
             <div class="col-md-12 col-sm-12 col-xs-12">
                 <div>

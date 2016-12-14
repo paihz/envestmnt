@@ -36,3 +36,8 @@ Route::group(['prefix' => 'view'], function () {
     // referrals link was here
     Route::get('referrals', 'InviteController@index') ; // remember hard code at upper line first.
     Route::get('ref/{invitecode}', 'InviteController@registerRef') ;
+
+    //Admin Pages
+Route::group(['prefix' => 'admin'], function () {
+    Route::get('/', 'AdminController@index') ;
+});
