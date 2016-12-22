@@ -39,5 +39,9 @@ Route::group(['prefix' => 'view'], function () {
 
     //Admin Pages
 Route::group(['prefix' => 'admin'], function () {
-    Route::get('/', 'AdminController@index') ;
+    Route::get('/', 'AdminController@index');
+    //deposit
+    Route::get('deposit', 'AdminController@depositIndex');
+    Route::get('deposit-edit/{id}', 'AdminController@depositEdit');
+    Route::post('deposit-update/{id}', 'AdminController@depositUpdate');
 });

@@ -44,7 +44,7 @@
                                                 @if($sejarah->status === 1)
                                                     <span class="text-warning">Pending</span>
                                                 @elseif($sejarah->status === 2)
-                                                    <span class="text-success">Completed</span>
+                                                    <span class="text-success">Approved</span>
                                                 @elseif($sejarah->status === 3)
                                                     <span class="text-danger">Reject</span>
                                                 @else

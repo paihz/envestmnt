@@ -28,6 +28,9 @@ class DashboardController extends Controller
     {
        // $data["mobile"] = Auth::user()->profile->phone ;
        // $data["location"] = Auth::user()->profile->location ;
+        if(Auth::user()->is_admin){
+            return redirect('/admin');
+        }
        $dob  = date('Y', strtotime(Auth::user()->birthday));
        $yearnow = Carbon::now()->year;
        $data['age'] =  $yearnow - $dob;

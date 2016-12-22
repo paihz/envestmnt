@@ -1,70 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <title>Admin Dashboard</title>
-    <meta name="description" content="Only access by admin." />
-    <meta name="author" content="paihz"/>
-    <!-- Favicon -->
-    <link rel="icon" href="{{ asset('favicon.ico') }}" type="image/x-icon">
-    <!-- vector map CSS -->
-    <link href="{{ asset('super/vendors/vectormap/jquery-jvectormap-2.0.2.css') }}" rel="stylesheet" type="text/css"/>
-    <!-- Data table CSS -->
-    <link href="{{ asset('super/vendors/bower_components/datatables/media/css/jquery.dataTables.min.css') }} " rel="stylesheet" type="text/css"/>
-    <link href="{{ asset('super/vendors/bower_components/jquery-toast-plugin/dist/jquery.toast.min.css') }} " rel="stylesheet" type="text/css">
-    <!-- Custom CSS -->
-    <link href="{{ asset('super/dist/css/style.css') }}" rel="stylesheet" type="text/css">
-</head>
-
-<body>
-
-<div class="wrapper">
-    <!-- Top Menu Items -->
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-        <a id="toggle_nav_btn" class="toggle-left-nav-btn inline-block mr-20 pull-left" href="javascript:void(0);"><i class="fa fa-bars"></i></a>
-        <a href="{{ url('/admin') }}"><img class="brand-img pull-left" src="{{ asset('/assets/img/logo.png') }}" alt="brand"/></a>
-    </nav>
-    <!-- /Top Menu Items -->
-
-    <!-- Left Sidebar Menu -->
-    <div class="fixed-sidebar-left">
-        <ul class="nav navbar-nav side-nav nicescroll-bar">
-            <li>
-                <a href="{{ action('AdminController@index') }}"><i class="ti-clipboard mr-10"></i>Dashboard</a>
-            </li>
-            <li>
-                <a href="documentation.html"><i class="icon-doc mr-10"></i>documentation</a>
-            </li>
-            <li>
-                <a href="javascript:void(0);" data-toggle="collapse" data-target="#dropdown_dr_lv1"><i class="icon-arrow-down-circle mr-10"></i>Dropdown leavel 1<span class="pull-right"><i class="fa fa-fw fa-angle-down"></i></span></a>
-                <ul id="dropdown_dr_lv1" class="collapse collapse-level-1">
-                    <li>
-                        <a href="#">Dropdown Item</a>
-                    </li>
-                    <li>
-                        <a href="#">Dropdown Item</a>
-                    </li>
-                    <li>
-                        <a href="javascript:void(0);" data-toggle="collapse" data-target="#dropdown_dr_lv2">Dropdown leavel 2<span class="pull-right"><i class="fa fa-fw fa-angle-down"></i></span></a>
-                        <ul id="dropdown_dr_lv2" class="collapse collapse-level-2">
-                            <li>
-                                <a href="#">Dropdown Item</a>
-                            </li>
-                            <li>
-                                <a href="#">Dropdown Item</a>
-                            </li>
-                            <li>
-                                <a href="#">Dropdown Item</a>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-            </li>
-        </ul>
-    </div>
-    <!-- /Left Sidebar Menu -->
-
+@extends('layouts.admin')
+@section('content')
     <!-- Main Content -->
     <div class="page-wrapper">
         <div class="container-fluid">
@@ -72,7 +7,7 @@
             <!-- Title -->
             <div class="row heading-bg  bg-blue">
                 <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-                    <h5 class="txt-light">Dashboard</h5>
+                    <h5 class="txt-light">Admin Dashboard</h5>
                 </div>
             </div>
             <!-- /Title -->
@@ -235,23 +170,23 @@
                                     <li class="chat-list">
                                         <div class="chat-body">
                                             @foreach($latestUser as $latest )
-                                            <a class="" href="#">
-                                                <div class="chat-data">
-                                                    <img class="user-img img-circle"
-                                                         @if(Gravatar::exists($latest->email)) src="{{ Gravatar::get($latest->email) }}"
-                                                        @else src="{{ asset('assets/img/avatar-main.jpg') }}"
-                                                        @endif
-                                                        alt="user"/>
+                                                <a class="" href="#">
+                                                    <div class="chat-data">
+                                                        <img class="user-img img-circle"
+                                                             @if(Gravatar::exists($latest->email)) src="{{ Gravatar::get($latest->email) }}"
+                                                             @else src="{{ asset('assets/img/avatar-main.jpg') }}"
+                                                             @endif
+                                                             alt="user"/>
 
-                                                    <div class="user-data">
-                                                        <span class="name block capitalize-font">{{ $latest->name }}</span>
-                                                        <span class="time block txt-grey">{{ \Carbon\Carbon::createFromTimeStamp(strtotime($latest->created_at))->diffForHumans() }}</span>
+                                                        <div class="user-data">
+                                                            <span class="name block capitalize-font">{{ $latest->name }}</span>
+                                                            <span class="time block txt-grey">{{ \Carbon\Carbon::createFromTimeStamp(strtotime($latest->created_at))->diffForHumans() }}</span>
+                                                        </div>
+                                                        <div class="status online"></div>
+                                                        <div class="clearfix"></div>
                                                     </div>
-                                                    <div class="status online"></div>
-                                                    <div class="clearfix"></div>
-                                                </div>
-                                            </a>
-                                                @endforeach
+                                                </a>
+                                            @endforeach
                                         </div>
                                     </li>
                                 </ul>
@@ -478,42 +413,4 @@
 
     </div>
     <!-- /Main Content -->
-
-</div>
-<!-- /#wrapper -->
-
-<!-- JavaScript -->
-
-<!-- jQuery -->
-<script src="{{ asset('super/vendors/bower_components/jquery/dist/jquery.min.js') }}"></script>
-
-<!-- Bootstrap Core JavaScript -->
-<script src="{{ asset('super/vendors/bower_components/bootstrap/dist/js/bootstrap.min.js') }}"></script>
-
-<!-- Counter Animation JavaScript -->
-<script src="{{ asset('super/vendors/bower_components/waypoints/lib/jquery.waypoints.min.js') }}"></script>
-<script src="{{ asset('super/vendors/bower_components/Counter-Up/jquery.counterup.min.js') }}"></script>
-
-<!-- Data table JavaScript -->
-<script src="{{ asset('super/vendors/bower_components/datatables/media/js/jquery.dataTables.min.js') }}"></script>
-<script src="{{ asset('super/dist/js/productorders-data.js') }}"></script>
-
-<!-- Slimscroll JavaScript -->
-<script src="{{ asset('super/dist/js/jquery.slimscroll.js') }}"></script>
-
-<!-- Fancy Dropdown JS -->
-<script src="{{ asset('super/dist/js/dropdown-bootstrap-extended.js') }}"></script>
-
-<script src="{{ asset('super/vendors/bower_components/jquery.easy-pie-chart/dist/jquery.easypiechart.min.js') }}"></script>
-<script src="{{ asset('super/dist/js/skills-counter-data.js') }}"></script>
-
-<!-- ChartJS JavaScript -->
-<script src="{{ asset('super/vendors/chart.js/Chart.min.js') }}"></script>
-
-<script src="{{ asset('super/vendors/bower_components/jquery-toast-plugin/dist/jquery.toast.min.js') }}"></script>
-
-<!-- Init JavaScript -->
-<script src="{{ asset('super/dist/js/init.js') }}"></script>
-<script src="{{ asset('super/dist/js/dashboard3-data.js') }}"></script>
-</body>
-</html>
+@endsection
