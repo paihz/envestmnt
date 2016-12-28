@@ -35,4 +35,7 @@ class User extends Authenticatable
     public function share(){
         return $this->hasMany(Share::class);
     }
+    public function balance(){
+        return $this->hasOne(Balance::class);
+    }
 }

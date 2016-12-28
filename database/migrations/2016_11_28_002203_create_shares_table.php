@@ -16,7 +16,8 @@ class CreateSharesTable extends Migration
         Schema::create('shares', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id')->unsigned();
-            $table->decimal('total_share', 5, 2);
+            $table->decimal('total_share', 7, 2);
+            $table->integer('model_of_investment');
             $table->string('send_to');
             $table->string('saved_url');
             $table->dateTime('transfer_on');

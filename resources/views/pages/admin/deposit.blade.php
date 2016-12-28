@@ -32,6 +32,7 @@
                                                 <th>Name</th>
                                                 <th>Total Transfer</th>
                                                 <th>Transfer to</th>
+                                                <th>ROI</th>
                                                 <th>Notes</th>
                                                 <th>Status</th>
                                                 <th>Action</th>
@@ -44,6 +45,14 @@
                                                 <td>{{  \App\User::find($request->user_id)->name }}</td>
                                                 <td>RM {{ $request->total_share }}</td>
                                                 <td>{{ $request->send_to }}</td>
+                                                <td>@if($request->model_of_investment === 1)
+                                                        <span class="label label-primary ">PACKAGE 1</span>
+                                                    @elseif($request->model_of_investment === 2)
+                                                         <span class="label label-primary ">PACKAGE 2</span>
+                                                    @else($request->model_of_investment === 3)
+                                                        <span class="label label-primary ">PACKAGE 3</span>
+                                                     @endif
+                                                    </td>
                                                 <td width="26%">{{ $request->notes }}</td>
                                                 <td>
                                                     @if($request->status === 1)
@@ -56,7 +65,10 @@
                                                         Not status
                                                     @endif
                                                 </td>
-                                                <td><a href="deposit-edit/{{$request->id}}" class="btn btn-default btn-outline btn-anim"><i class="fa fa-pencil"></i><span class="btn-text">Edit</span></a></td>
+                                                <td>@if($request->status === 1 || $request->status === 3   )
+                                                        <a href="deposit-edit/{{$request->id}}" class="btn btn-default btn-outline btn-anim">
+                                                            <i class="fa fa-pencil"></i><span class="btn-text">Edit</span></a>
+                                                </td>@endif
                                             </tr>
                                                 @endforeach
                                             </tbody>

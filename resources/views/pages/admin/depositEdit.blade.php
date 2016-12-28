@@ -9,7 +9,6 @@
                 </div>
             </div>
             <!-- /Title -->
-
             <div class="col-md-12">
                 <div class="panel panel-default card-view">
                     <div class="panel-heading">
@@ -46,6 +45,14 @@
                                                     </div>
                                                 </div>
                                             </div>
+                                        <div class="form-group">
+                                            <label for="totalshare" class="col-sm-3 control-label">Package :</label>
+                                            <div class="col-sm-9">
+                                                <div class="input-group">
+                                                    <p class="form-control-static"> {{  $user->model_of_investment }} </p>
+                                                </div>
+                                            </div>
+                                        </div>
                                         <div class="form-group">
                                             <label for="totalshare" class="col-sm-3 control-label">Transfer to :</label>
                                             <div class="col-sm-9">
@@ -99,7 +106,8 @@
                                         </div>
                                             <div class="form-group mb-0">
                                                 <div class="col-sm-offset-3 col-sm-9">
-                                                    {!!   Form::submit('Click Me!', ['class' => 'btn btn-danger'])!!}
+                                                    {!!   Form::submit('Save', ['class' => 'btn btn-success mr-10'])!!}
+                                                    <a href="{{ url('/admin/deposit') }}" class="btn btn-default">Cancel</a>
                                                 </div>
                                             </div>
                                         {!! Form::close() !!}

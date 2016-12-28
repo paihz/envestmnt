@@ -33,6 +33,7 @@ class DashboardController extends Controller
         }
        $dob  = date('Y', strtotime(Auth::user()->birthday));
        $yearnow = Carbon::now()->year;
+
        $data['age'] =  $yearnow - $dob;
        return view('pages.home.index', $data);
     }

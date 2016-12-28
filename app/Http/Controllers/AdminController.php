@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
-use App\User;
+use App\Balance;
+use App\lotshare;
 use App\Share;
 use DB;
 class AdminController extends Controller
@@ -36,8 +37,39 @@ class AdminController extends Controller
             'status' => $request->status,
             'remark' => $request->remark,
        ]);
+        if($request->status == 2){
+           $shareID = Share::findOrFail($id);
+            $getTheFuckingID = Share::findOrFail($id)->user_id;
+            $getBalance = Balance::where('user_id', $getTheFuckingID)->first();
+        //    dd($getBalance);
+            if($getBalance ==  null){
+                $sumALL = $shareID->total_share;
+            }else{
+                $sumALL = $getBalance->balance + $shareID->total_share;
+            }
 
-
+            Balance::updateOrCreate(
+                ['user_id' => $shareID->user_id],
+                ['balance' => $sumALL ]
+            );
+        }
         return redirect()->action('AdminController@depositIndex');
+    }
+    //Share add
+    public function shareIndex(){
+        $shareLot = DB::table('lotshares')->where('id', '1')->first();
+        return view('pages.admin.lotshare', compact('shareLot'));
+    }
+    public function shareUpdate(Request $request){
+        $this->validate($request, [
+            'lotshare' => 'required|numeric'
+        ]);
+
+        $updateStatus = lotshare::findOrFail(1);
+        $updateStatus->update([
+            'lotshare' => $request->lotshare,
+        ]);
+
+        return back();
     }
 }

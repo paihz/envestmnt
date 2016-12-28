@@ -46,12 +46,11 @@
                     </div>
                     <div class="col-xs-12 col-md-6 col-lg-3">
                         <div class="widget widget-tile">
-                            <div id="spark4" class="chart sparkline"></div>
+
                             <div class="data-info">
                                 <div class="desc">Downloads</div>
                                 <div class="value"><span
-                                            class="indicator indicator-negative mdi mdi-chevron-down"></span><span
-                                            data-toggle="counter" data-end="113" class="number">0</span>
+                                            class="indicator indicator-positive mdi mdi-chevron-right"></span>23
                                 </div>
                             </div>
                         </div>

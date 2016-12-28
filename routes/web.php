@@ -44,4 +44,7 @@ Route::group(['prefix' => 'admin'], function () {
     Route::get('deposit', 'AdminController@depositIndex');
     Route::get('deposit-edit/{id}', 'AdminController@depositEdit');
     Route::post('deposit-update/{id}', 'AdminController@depositUpdate');
+    //share per lot
+    Route::get('share-per-lot', 'AdminController@shareIndex');
+    Route::post('share-per-lot', 'AdminController@shareUpdate');
 });

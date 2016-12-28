@@ -29,9 +29,10 @@
                                         <th class="actions">Total share</th>
                                         <th>Transfer to</th>
                                         <th class="number">Transfer on</th>
+                                        <th class="actions">Package</th>
                                         <th class="actions">Status</th>
                                         <th style="width:28%;">Remarks</th>
-                                        <th>Created at</th>
+                                        <th>Investing on</th>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -40,6 +41,15 @@
                                             <td>RM {{ $sejarah->total_share }}</td>
                                             <td>{{ $sejarah->send_to }}</td>
                                             <td class="number">{{ date( 'g:i A d M Y ', strtotime($sejarah->transfer_on)) }}</td>
+                                            <td class="actions">
+                                                @if($sejarah->model_of_investment === 1)
+                                                    <strong>1</strong>
+                                                @elseif($sejarah->model_of_investment === 2)
+                                                    <strong >2</strong>
+                                                @else($sejarah->model_of_investment === 3)
+                                                    <strong >3</strong>
+                                                @endif
+                                            </td>
                                             <td class="actions">
                                                 @if($sejarah->status === 1)
                                                     <span class="text-warning">Pending</span>

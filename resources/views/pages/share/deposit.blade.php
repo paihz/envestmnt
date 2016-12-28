@@ -7,11 +7,19 @@
     <script src="{{ asset('assets/lib/datetimepicker/js/bootstrap-datetimepicker.min.js') }}"></script>
     <script src="{{ asset('assets/lib/select2/js/select2.min.js') }}" type="text/javascript"></script>
     <script src="{{ asset('assets/js/app-form-elements.js') }}" type="text/javascript"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.1.6/vue.js"></script>
     <script>
         $(function () {
             $(".drop-down").select2();
             App.formElements();
         })
+    </script>
+    <script>
+        $('input[id="kalidengan"]').keyup(function() {
+            var a = $('input[id="hargashare"]').val();
+            var b = $(this).val();
+            $('input[id="jumlah"]').val(a * b);
+        });
     </script>
 @endsection
 
@@ -21,23 +29,14 @@
             <div class="row">
 
                 @if (count($errors) > 0)
-
                     <div class="alert alert-danger">
-
                         <strong>Whoops!</strong> There were some problems with your input.<br><br>
-
                         <ul>
-
                             @foreach ($errors->all() as $error)
-
                                 <li>{{ $error }}</li>
-
                             @endforeach
-
                         </ul>
-
                     </div>
-
                 @endif
 
                 <div class="col-md-12">
@@ -48,9 +47,27 @@
                             {!! Form::open(['action' => 'ShareController@depositSaved','style'=>'border-radius: 0px;', 'class'=>'form-horizontal group-border-dashed', 'files' => true]) !!}
                             <div class="form-group">
                                 <label class=""></label>
-                                {{ Form::label('share', 'Total Per/Share', ['class' => 'col-sm-3 control-label']) }}
+                                {{ Form::label('share', 'Total Per/Lot', ['class' => 'col-sm-3 control-label']) }}
+                                <div class="col-sm-2">
+                                    <input class="form-control" readonly="readonly" id="hargashare"  type="text" value="{{ $jumlahperlot->lotshare }}">
+                                </div>
+                                <div class="col-sm-1 text-center" style="padding: 0;width: 40px;">
+                                    <span style="font-size: 30px;">&times;</span>
+                                </div>
+                                <div class="col-sm-1">
+                                    {{ Form::text('per_lot', 1, ['class' => 'form-control', 'id'=>'kalidengan']) }}
+                                </div>
+                                <div class="col-sm-1 text-center" style="padding: 0;width: 40px;">
+                                    <span style="font-size: 30px;">&#61;</span>
+                                </div>
+                                <div class="col-sm-2 has-success">
+                                    {{ Form::text('total_share', $jumlahperlot->lotshare, ['class' => 'form-control', 'id'=>'jumlah', 'readonly' => 'readonly']) }}
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">Return on investment</label>
                                 <div class="col-sm-6">
-                                    {{ Form::text('share', '620', ['class' => 'form-control', 'readonly' => 'readonly']) }}
+                                    {!! Form::select('roi', [1 => '1&#37; for (  1 + 6 months  )', 2 => '2&#37; for ( 1 + 12 months )', 3 => '3&#37; for ( 1 + 18 months  )'], 1, ['class' => 'form-control']) !!}
                                 </div>
                             </div>
                             <div class="form-group">

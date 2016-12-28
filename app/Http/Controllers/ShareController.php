@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\UploadedFile;
 use App\Share;
 Use App\User;
+use App\lotshare;
 use Auth;
 use DB;
 
@@ -17,6 +18,8 @@ class ShareController extends Controller
         $this->middleware('auth');
     }
     public function deposit(){
+        $data['jumlahperlot'] = lotshare::where('id', 1)->first();
+        //dd($data['jumlahperlot']);
         $data['banklist'] = [
             'AFFIN BANK' => 'AFFIN BANK BERHAD',
             'AL RAJHI BANKING' => 'AL RAJHI BANKING AND INVESTMENT CORPORATION (MALAYSIA) BHD',
@@ -41,17 +44,21 @@ class ShareController extends Controller
     public function depositSaved(Request $request){
         $this->validate($request, [
             'transfer_to' => 'required',
+            'per_lot' => 'required|numeric',
+            'total_share' => 'numeric|max:300000',
          //   'time_of_transaction' => 'date_format:"Y-m-d H:i"|required',
             'proof_upload' => 'file|required|mimes:jpeg,jpg,pdf,png|max:4096',
             'notes' => 'string|max:30',
         ]);
+
 
         $path = Storage::putFile('doc', $request->file('proof_upload'));
 
         $share = Share::create([
             'user_id' => Auth::user()->id,
             'saved_url' => $path,
-            'total_share' => $request->share,
+            'total_share' => $request->total_share,
+            'model_of_investment' => $request->roi,
             'send_to' => $request->transfer_to,
             'transfer_on' => $request->time_of_transaction . ':00',//  "2016-11-28 12:27:00 ",
             'notes' => $request->notes,
