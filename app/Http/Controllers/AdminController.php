@@ -37,21 +37,17 @@ class AdminController extends Controller
             'status' => $request->status,
             'remark' => $request->remark,
        ]);
+        // if approve trigger yang ni, else
         if($request->status == 2){
-           $shareID = Share::findOrFail($id);
-            $getTheFuckingID = Share::findOrFail($id)->user_id;
-            $getBalance = Balance::where('user_id', $getTheFuckingID)->first();
-        //    dd($getBalance);
-            if($getBalance ==  null){
-                $sumALL = $shareID->total_share;
-            }else{
-                $sumALL = $getBalance->balance + $shareID->total_share;
-            }
-
-            Balance::updateOrCreate(
-                ['user_id' => $shareID->user_id],
-                ['balance' => $sumALL ]
-            );
+            $shareID = Share::find($id);
+            $sumALL = $shareID->total_share;
+            
+            Balance::create(
+                [
+                    'user_id' => $shareID->user_id,
+                    'package' => $shareID->model_of_investment,
+                    'balance' => $sumALL
+                ]);
         }
         return redirect()->action('AdminController@depositIndex');
     }

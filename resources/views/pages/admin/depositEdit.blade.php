@@ -23,28 +23,28 @@
                                 <div class="col-sm-12 col-xs-12">
                                     <div class="form-wrap">
                                         {!! Form::model($user, ['action' => ['AdminController@depositUpdate', $user->id], 'class' => 'form-horizontal']) !!}
-                                            <div class="form-group">
-                                                <label for="name" class="col-sm-3 control-label">Name :</label>
-                                                <div class="col-sm-9">
-                                                    <p class="form-control-static">{{  \App\User::find($user->user_id)->name }}</p>
+                                        <div class="form-group">
+                                            <label for="name" class="col-sm-3 control-label">Name :</label>
+                                            <div class="col-sm-9">
+                                                <p class="form-control-static">{{  \App\User::find($user->user_id)->name }}</p>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="email" class="col-sm-3 control-label">Email :</label>
+                                            <div class="col-sm-9">
+                                                <div class="input-group">
+                                                    <p class="form-control-static">{{  \App\User::find($user->user_id)->email }} </p>
                                                 </div>
                                             </div>
-                                            <div class="form-group">
-                                                <label for="email" class="col-sm-3 control-label">Email :</label>
-                                                <div class="col-sm-9">
-                                                    <div class="input-group">
-                                                        <p class="form-control-static">{{  \App\User::find($user->user_id)->email }} </p>
-                                                    </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="totalshare" class="col-sm-3 control-label">Total Share :</label>
+                                            <div class="col-sm-9">
+                                                <div class="input-group">
+                                                    <p class="form-control-static">RM {{  $user->total_share }} </p>
                                                 </div>
                                             </div>
-                                             <div class="form-group">
-                                                <label for="totalshare" class="col-sm-3 control-label">Total Share :</label>
-                                                <div class="col-sm-9">
-                                                    <div class="input-group">
-                                                        <p class="form-control-static">RM {{  $user->total_share }} </p>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                        </div>
                                         <div class="form-group">
                                             <label for="totalshare" class="col-sm-3 control-label">Package :</label>
                                             <div class="col-sm-9">
@@ -65,17 +65,20 @@
                                             <label for="totalshare" class="col-sm-3 control-label">Transfer on :</label>
                                             <div class="col-sm-9">
                                                 <div class="input-group">
-                                                        <?php $timestamp = strtotime($user->transfer_on); ?>
+                                                    <?php $timestamp = strtotime($user->transfer_on); ?>
                                                     <p class="form-control-static">{{  date("h:i:s A - d F Y ",  $timestamp) }} </p>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label for="totalshare" class="col-sm-3 control-label">Proof of payments :</label>
+                                            <label for="totalshare" class="col-sm-3 control-label">Proof of payments
+                                                :</label>
                                             <div class="col-sm-9">
                                                 <div class="input-group">
                                                     <p class="form-control-static">
-                                                        <a data-toggle="tooltip" data-placement="right" title="View File" data-original-title="View File" target="_blank"
+                                                        <a data-toggle="tooltip" data-placement="right"
+                                                           title="View File" data-original-title="View File"
+                                                           target="_blank"
                                                            href="{{ asset($user->saved_url) }}">{{ asset($user->saved_url) }}</a>
                                                     </p>
                                                 </div>
@@ -93,23 +96,25 @@
                                         <div class="form-group">
                                             {!!  Form::label('status', 'Status', ['class' => 'col-sm-3 control-label']) !!}
                                             <div class="col-sm-5">
-                                                    {!!   Form::select('status', [1 => 'Pending', 2 => 'Approved', 3 => 'Reject'], $user->status , ['class' => 'form-control'])  !!}
+                                                {!!   Form::select('status', [1 => 'Pending', 2 => 'Approved', 3 => 'Reject'], $user->status , ['class' => 'form-control'])  !!}
                                             </div>
                                         </div>
-                                        <div class="form-group">
+                                        <div class="form-group {{ $errors->has('remark') ? ' has-error' : '' }}">
                                             {!!   Form::label('remark', 'Remark', ['class' => 'col-sm-3 control-label']) !!}
                                             <div class="col-sm-9">
                                                 <div class="input-group">
                                                     {!! Form::textarea('remark',  null,['class' => 'form-control', 'rows' => 5]) !!}
                                                 </div>
+                                                @if ($errors->has('remark'))<span
+                                                        class="help-block "> {{ $errors->first('remark') }} </span> @endif
                                             </div>
                                         </div>
-                                            <div class="form-group mb-0">
-                                                <div class="col-sm-offset-3 col-sm-9">
-                                                    {!!   Form::submit('Save', ['class' => 'btn btn-success mr-10'])!!}
-                                                    <a href="{{ url('/admin/deposit') }}" class="btn btn-default">Cancel</a>
-                                                </div>
+                                        <div class="form-group mb-0">
+                                            <div class="col-sm-offset-3 col-sm-9">
+                                                {!!   Form::submit('Save', ['class' => 'btn btn-success mr-10'])!!}
+                                                <a href="{{ url('/admin/deposit') }}" class="btn btn-default">Cancel</a>
                                             </div>
+                                        </div>
                                         {!! Form::close() !!}
                                     </div>
                                 </div>

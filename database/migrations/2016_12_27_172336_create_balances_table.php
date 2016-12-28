@@ -16,6 +16,7 @@ class CreateBalancesTable extends Migration
         Schema::create('balances', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id')->unsigned();
+            $table->integer('package')->nullable();
             $table->decimal('all_investment', 8, 2)->default(0.00);
             $table->decimal('monthly_profit', 7, 2)->default(0.00);
             $table->decimal('balance', 7, 2)->default(0.00);

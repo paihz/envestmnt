@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Balance;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 use Auth;
@@ -31,10 +32,9 @@ class DashboardController extends Controller
         if(Auth::user()->is_admin){
             return redirect('/admin');
         }
-       $dob  = date('Y', strtotime(Auth::user()->birthday));
-       $yearnow = Carbon::now()->year;
 
-       $data['age'] =  $yearnow - $dob;
+        $data['all_balance'] = Balance::all_balance();
+
        return view('pages.home.index', $data);
     }
 }
