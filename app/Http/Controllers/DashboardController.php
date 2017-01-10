@@ -33,8 +33,8 @@ class DashboardController extends Controller
             return redirect('/admin');
         }
 
-        $data['all_balance'] = Balance::all_balance();
-
+        $data['all_balance'] = Balance::allBalance();
+        $data['all_profit'] = Balance::allProfit();
        return view('pages.home.index', $data);
     }
 }

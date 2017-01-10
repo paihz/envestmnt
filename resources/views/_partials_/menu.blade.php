@@ -28,6 +28,8 @@
                         </li>
                         <li class="parent @if(URL::current() == url('view/*')) open @endif"><a href="javascript:void(0)"><i class="icon mdi mdi-plus-square"></i><span>Withdrawal</span></a>
                             <ul class="sub-menu">
+                                <li class="@if(URL::current() == action('WithdrawController@senaraiKeluar')) active @endif"><a href="{{ action('WithdrawController@senaraiKeluar') }}">List Withdrawal</a>
+                                </li>
                                 <li class="@if(URL::current() == action('WithdrawController@create')) active @endif"><a href="{{ action('WithdrawController@create') }}">Request withdrawal</a>
                                 </li>
                                 <li class="@if(URL::current() == action('WithdrawController@view')) active @endif"><a href="{{ action('WithdrawController@view') }}">History of withdrawal </a>

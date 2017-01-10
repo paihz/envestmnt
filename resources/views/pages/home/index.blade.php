@@ -11,49 +11,6 @@
         <div class="main-content container-fluid">
             <div class="user-profile">
                 <div class="row">
-                    <div class="col-xs-12 col-md-6 col-lg-3">
-                        <div class="widget widget-tile">
-                            <div id="spark2" class="chart sparkline"></div>
-                            <div class="data-info">
-                                <div class="desc">Monthly Sales</div>
-                                <div class="value"><span class="indicator indicator-positive mdi mdi-chevron-up"></span><span
-                                            data-toggle="counter" data-end="80" data-suffix="%" class="number">0</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xs-12 col-md-6 col-lg-3">
-                        <div class="widget widget-tile">
-                            <div class="data-info">
-                                <div class="desc">Withdrawal limits</div>
-                                <div class="value"><span class="indicator indicator-equal mdi mdi-chevron-right"></span>RM <span
-                                            data-toggle="counter" data-end="113" class="number">0</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xs-12 col-md-6 col-lg-3">
-                        <div class="widget widget-tile">
-                            <div class="data-info">
-                                <div class="desc">Total Profit</div>
-                                <div class="value"><span class="indicator indicator-positive mdi mdi-chevron-right"></span>RM <span
-                                            data-toggle="counter" data-end="{{ $total_profit or '0' }}" class="number">0</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xs-12 col-md-6 col-lg-3">
-                        <div class="widget widget-tile">
-                            <div class="data-info">
-                                <div class="desc">Total Balances</div>
-                                <div class="value"><span class="indicator indicator-positive mdi mdi-chevron-right"></span>RM <span
-                                            data-toggle="counter" data-end="{{ $all_balance }}" class="number">0</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
                     <div class="col-md-5">
                         <div class="user-display">
                             <div class="user-display-bg"><img src="{{ asset('assets/img/user-profile-display.png') }}"
@@ -97,6 +54,28 @@
                         </div>
                     </div>
                     <div class="col-md-7">
+                        <div class="row">
+                            <div class="col-xs-6 col-md-6 col-lg-6">
+                                <div class="widget widget-tile">
+                                    <div class="data-info">
+                                        <div class="desc">Profit</div>
+                                        <div class="value"><span class="indicator indicator-positive mdi mdi-chevron-right"></span>RM <span
+                                                    data-toggle="counter" data-end="{{ $all_profit }}" class="number">0</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-6 col-md-6 col-lg-6">
+                                <div class="widget widget-tile">
+                                    <div class="data-info">
+                                        <div class="desc">Current Investment</div>
+                                        <div class="value"><span class="indicator indicator-positive mdi mdi-chevron-right"></span>RM <span
+                                                    data-toggle="counter" data-end="{{ $all_balance }}" class="number">0</span>
+                                        </div>
+                                    </div>
+                                </div>
+                        </div>
+                        </div>
                         <div class="widget widget-fullwidth widget-small">
                             <div class="widget-chart-container">
                                 <table class="table table-striped table-hover">

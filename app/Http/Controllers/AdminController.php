@@ -38,14 +38,22 @@ class AdminController extends Controller
             'remark' => $request->remark,
        ]);
         // if approve trigger yang ni, else
-        if($request->status == 2){
+        if ($request->status == 2){
             $shareID = Share::find($id);
             $sumALL = $shareID->total_share;
-            
+            //calculate profit
+            if($shareID->model_of_investment == 3){
+                $getProfit = $sumALL *  0.03 * 18 ;
+            }elseif ($shareID->model_of_investment == 2){
+                $getProfit = $sumALL *  0.02 * 12 ;
+            }else{
+                $getProfit = $sumALL *  0.01 * 6 ;
+            }
             Balance::create(
                 [
                     'user_id' => $shareID->user_id,
                     'package' => $shareID->model_of_investment,
+                    'monthly_profit' => $getProfit,
                     'balance' => $sumALL
                 ]);
         }

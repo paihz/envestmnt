@@ -29,6 +29,8 @@ Route::group(['prefix' => 'view'], function () {
     Route::get('fund-history', 'ShareController@history');
 
     //request withdrawal
+    Route::get('withdrawal-all', 'WithdrawController@senaraiKeluar');
+    //Route::get('withdrawal-all/{id}', 'WithdrawController@senaraiKeluar');
     Route::get('withdrawal', 'WithdrawController@create');
     Route::post('withdrawal', 'WithdrawController@store');
     Route::get('request-withdrawal', 'WithdrawController@view');
