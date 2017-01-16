@@ -20,15 +20,54 @@
     <link rel="stylesheet" type="text/css"
           href="{{ asset('assets/lib/datetimepicker/css/bootstrap-datetimepicker.min.css') }}"/>
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}" type="text/css"/>
-    <style>
-        .g-recaptcha {
-            margin: 15px auto !important;
-            width: auto !important;
-            height: auto !important;
-            text-align: -webkit-center;
-            text-align: -moz-center;
+    <style type="text/css">
+        div {
+            margin-top: 1em;
+            margin-bottom: 1em;
         }
+
+        input {
+            padding: .5em;
+            margin: .5em;
+        }
+
+        select {
+            padding: .5em;
+            margin: .5em;
+        }
+
+        #signatureparent {
+            color: darkblue;
+            background-color: #eeeeee;
+            /*max-width:600px;*/
+            padding: 20px;
+        }
+
+        /*This is the div within which the signature canvas is fitted*/
+        #signature {
+            border: 2px dotted black;
+            background-color: lightgrey;
+        }
+
+        /* Drawing the 'gripper' for touch-enabled devices */
+        html.touch #content {
+            float: left;
+            width: 92%;
+        }
+
+        html.touch #scrollgrabber {
+            float: right;
+            width: 4%;
+            margin-right: 2%;
+            background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAAFCAAAAACh79lDAAAAAXNSR0IArs4c6QAAABJJREFUCB1jmMmQxjCT4T/DfwAPLgOXlrt3IwAAAABJRU5ErkJggg==)
+        }
+
+        html.borderradius #scrollgrabber {
+            border-radius: 1em;
+        }
+
     </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
 </head>
 <body class="be-splash-screen">
 <div class="be-wrapper be-login be-signup">
@@ -42,7 +81,7 @@
                     <div class="panel-body">
                         <form role="form" method="POST" action="{{ url('/register') }}">
                             <span class="splash-title xs-pb-20">Sign Up</span>
-                                {{ csrf_field() }}
+                            {{ csrf_field() }}
                             <div class="form-group">
                                 <input type="text" name="name" required value="{{ old('name') }}"
                                        placeholder="Full name" autocomplete="off"
@@ -53,7 +92,7 @@
                                     </span>
                                 @endif
                             </div>
-                            <input type="hidden" name="invite_id" value="0" />
+                            <input type="hidden" name="invite_id" value="0"/>
                             <div class="form-group">
                                 <input type="email" name="email" value="{{ old('email') }}" required
                                        placeholder="E-mail" autocomplete="off"
@@ -94,22 +133,31 @@
                             @endif
                             <hr>
                             <div class="form-group">
-                                <!-- reCapatcha -->
-                                <div id="capatcha">
-                                    {!! app('captcha')->display() !!}
-                                    @if ($errors->has('g-recaptcha-response'))
-                                        <span class="text-danger">
-                                        <strong>{{ $errors->first('g-recaptcha-response') }}</strong>
-                                    </span>
-                                    @endif
+                                <div id="signatureparent">
+                                    <div id="signature"></div>
+                                        <button class="btn btn-space btn-default btn-lg" type="button"
+                                                onclick="$('#signature').jSignature('clear')">Clear
+                                        </button>
+                                        <button class="btn btn-space btn-default btn-lg" type="button" id="btnSave">
+                                            <i class="icon icon-left mdi mdi-cloud-done"></i> Generate
+                                        </button>
                                 </div>
+                                <input type="hidden" id="digital_signature" name="digital_signature"/>
                             </div>
+                            <div id="scrollgrabber"></div>
+                            @if ($errors->has('digital_signature'))
+                                <span class="text-danger">
+                                        <strong>{{ $errors->first('digital_signature') }}</strong>
+                                    </span>
+                            @endif
                             <div class="form-group xs-pt-10">
                                 <div class="be-checkbox">
                                     <input type="checkbox" id="remember" name="terms">
                                     <label for="remember">By creating an account, you agree the <a href="#">terms and
                                             conditions</a>.</label>
                                 </div>
+                                <br>
+                                <br>
                                 @if ($errors->has('terms'))
                                     <span class="text-danger">
                                         <strong>{{ $errors->first('terms') }}</strong>
@@ -117,7 +165,7 @@
                                 @endif
                             </div>
                             <div class="form-group xs-pt-10">
-                                <button type="submit" class="btn btn-block btn-primary btn-xl">Create new account
+                                <button type="submit" class="btn btn-block btn-success btn-xl">Create new account
                                 </button>
                             </div>
                         </form>
@@ -129,6 +177,7 @@
     </div>
 </div>
 <script src="{{ asset('assets/lib/jquery/jquery.min.js') }}" type="text/javascript"></script>
+@include('_partials_.signature')
 <script src="{{ asset('assets/lib/perfect-scrollbar/js/perfect-scrollbar.jquery.min.js') }}"
         type="text/javascript"></script>
 <script src="{{ asset('assets/js/main.js') }}" type="text/javascript"></script>

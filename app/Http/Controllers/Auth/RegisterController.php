@@ -52,7 +52,8 @@ class RegisterController extends Controller
             'email' => 'required|email|max:255|unique:users',
             'gender'=> 'required',
             'password' => 'required|min:6|confirmed',
-            'g-recaptcha-response' => 'required|captcha', // reCaptcha google
+            'digital_signature' => 'required',
+           // 'g-recaptcha-response' => 'required|captcha', // reCaptcha google
             'terms' => 'accepted' // This is check checkbox is checked
         ]);
     }
@@ -77,6 +78,7 @@ class RegisterController extends Controller
             'name' => ucwords($data['name']),
             'email' => $data['email'],
             'gender' => $data['gender'],
+            'signature' => $data['digital_signature'],
             'invite_id' => $data['invite_id'],
             'invite_code' => $generateRef,
             'password' => bcrypt($data['password']),

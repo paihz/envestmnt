@@ -88,7 +88,7 @@
                                                     $nowTime = strtotime(date("2018-02-11 H:i:s"));
                                                     ?>
                                                     @if($validDate <= $nowTime )
-                                                        <a href="{{  }}" class="btn btn-space btn-success">Send to wallet</a>
+                                                        <a href="withdrawal-all/{{ $senarai->id }}" class="btn btn-space btn-success">Send to wallet</a>
                                                     @else
                                                         <a disabled class="btn btn-space btn-danger">Not valid to
                                                             process</a>

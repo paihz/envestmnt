@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Balance;
 use Illuminate\Http\Request;
 use Auth;
 use App\Withdraw;
@@ -20,8 +21,12 @@ class WithdrawController extends Controller
 
         return view('pages.withdrawal.list', $data);
     }
-    public function sendToWallet($id){
-            
+    public function sendToWallet($id, Request $request){
+            $userAll = Auth::user()->total_wallet;
+           //$findID = Balance::find($id)->first();
+           // $currentBalances = $userAll +
+
+           dd($request, $totalBalance);
     }
 
     public function create()
