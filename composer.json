@@ -11,7 +11,9 @@
         "creativeorange/gravatar": "~1.0",
         "anhskohbo/no-captcha": "^2.1",
         "yajra/laravel-datatables-oracle": "~6.0",
-        "guzzlehttp/guzzle": "^6.2"
+        "guzzlehttp/guzzle": "^6.2",
+        "h4cc/wkhtmltopdf-amd64": "0.12.x",
+        "barryvdh/laravel-snappy": "^0.3.1"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

@@ -139,7 +139,7 @@
                                                 onclick="$('#signature').jSignature('clear')">Clear
                                         </button>
                                         <button class="btn btn-space btn-default btn-lg" type="button" id="btnSave">
-                                            <i class="icon icon-left mdi mdi-cloud-done"></i> Generate
+                                            Generate
                                         </button>
                                 </div>
                                 <input type="hidden" id="digital_signature" name="digital_signature"/>
