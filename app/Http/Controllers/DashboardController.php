@@ -37,7 +37,5 @@ class DashboardController extends Controller
         $data['all_profit'] = Balance::allProfit();
        return view('pages.home.index', $data);
     }
-    public function agreement(){
-        return view('pages.profiles.agreement');
-    }
+
 }

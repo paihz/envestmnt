@@ -6,9 +6,9 @@ Route::get('/', function () {
 });
 
 Auth::routes();
+Route::get('reg/{agent_name}', 'Auth\RegisterController@showRegistrationFormAgent');
 
 Route::get('home', 'DashboardController@index');
-Route::get('agreement', 'DashboardController@agreement');
 Route::group(['prefix' => 'profile'], function () {
     Route::get('index', 'ProfileController@index');
     Route::post('index', 'ProfileController@addProfile');
@@ -36,8 +36,8 @@ Route::group(['prefix' => 'view'], function () {
     Route::get('request-withdrawal', 'WithdrawController@view');
 });
     // referrals link was here
-    Route::get('referrals', 'InviteController@index') ; // remember hard code at upper line first.
-    Route::get('ref/{invitecode}', 'InviteController@registerRef') ;
+    Route::get('referrals', 'InviteController@index')->middleware('auth'); // remember hard code at upper line first.
+    Route::get('ref/{invitecode}', 'InviteController@registerRef')->middleware('guest'); ;
 
     //Admin Pages
 Route::group(['prefix' => 'admin'], function () {

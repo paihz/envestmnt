@@ -22,6 +22,18 @@
     <div class="be-content">
         <div class="main-content container-fluid">
             <div class="splash-container">
+                @if(Session::has('error'))
+                    <div class="form-group ">
+                        <div role="alert" class="alert alert-danger alert-icon alert-dismissible">
+                            <div class="icon"><span class="mdi mdi-close-circle-o"></span></div>
+                            <div class="message text-center">
+                                <button type="button" data-dismiss="alert" aria-label="Close" class="close"><span aria-hidden="true"
+                                                                                                                  class="mdi mdi-close"></span>
+                                </button>{{ session('error') }}
+                            </div>
+                        </div>
+                    </div>
+                @endif
                 <div class="panel panel-default panel-border-color panel-border-color-primary">
                     <div class="panel-heading"><img src="{{ asset('logo-xx.png') }}" alt="logo" width="120" height="120"
                                                     class="logo-img"><span class="splash-description">Please enter your user information.</span>

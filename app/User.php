@@ -15,7 +15,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'gender', 'invite_code', 'invite_id', 'total_wallet', 'signature'];
+        'name', 'email', 'password', 'gender','agent_referral', 'invite_code', 'invite_id', 'total_wallet', 'signature'];
     /**
      * The attributes that should be hidden for arrays.
      *
@@ -36,5 +36,8 @@ class User extends Authenticatable
     }
     public function balance(){
         return $this->hasOne(Balance::class);
+    }
+    public function agent(){
+        return $this->hasOne(Agent::class);
     }
 }

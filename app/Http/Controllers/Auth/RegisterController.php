@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Agent;
 use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
@@ -39,21 +40,39 @@ class RegisterController extends Controller
         $this->middleware('guest');
     }
 
+    public function showRegistrationForm()
+    {
+        return redirect('/login');
+    }
+
+    public function showRegistrationFormAgent($agent_name)
+    {
+        $cariName = Agent::where('ref_agent_name', $agent_name)->first();
+        if ($cariName == null){
+            session()->flash('error',  'Sorry, Your agent not found');
+            return redirect('/login');
+        }
+        $data["getAgent"] = $cariName->ref_agent_name ;
+        //dd($cariName);
+         return view('auth.register', $data);
+    }
+
     /**
      * Get a validator for an incoming registration request.
      *
-     * @param  array  $data
+     * @param  array $data
+     *
      * @return \Illuminate\Contracts\Validation\Validator
      */
     protected function validator(array $data)
     {
-        return Validator::make($data,   [
+        return Validator::make($data, [
             'name' => 'required|max:255',
             'email' => 'required|email|max:255|unique:users',
-            'gender'=> 'required',
+            'gender' => 'required',
             'password' => 'required|min:6|confirmed',
             'digital_signature' => 'required',
-           // 'g-recaptcha-response' => 'required|captcha', // reCaptcha google
+            // 'g-recaptcha-response' => 'required|captcha', // reCaptcha google
             'terms' => 'accepted' // This is check checkbox is checked
         ]);
     }
@@ -61,7 +80,8 @@ class RegisterController extends Controller
     /**
      * Create a new user instance after a valid registration.
      *
-     * @param  array  $data
+     * @param  array $data
+     *
      * @return User
      */
     protected function create(array $data)
@@ -69,16 +89,18 @@ class RegisterController extends Controller
         $characters = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
         $charactersLength = strlen($characters);
         $randomString = '';
-        for ($i = 0; $i < 7 ; $i++) {
+        for ($i = 0; $i < 7; $i++) {
             $randomString .= $characters[rand(0, $charactersLength - 1)];
         }
         $generateRef = "REF{$randomString}";
+
 
         return User::create([
             'name' => ucwords($data['name']),
             'email' => $data['email'],
             'gender' => $data['gender'],
             'signature' => $data['digital_signature'],
+            'agent_referral' => $data['ref_agent'],
             'invite_id' => $data['invite_id'],
             'invite_code' => $generateRef,
             'password' => bcrypt($data['password']),

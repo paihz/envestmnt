@@ -9,8 +9,6 @@ class InviteController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth')->except('registerRef');
-       // $this->middleware('guest')->only('registerRef');
     }
     public function index(){
         return view('pages.referral.index');
@@ -19,7 +17,8 @@ class InviteController extends Controller
         $cariInvCode = User::where('invite_code', '=', $invitecode )->first();
       //  dd($cariInvCode->name);
         if ($cariInvCode == null) {
-           return redirect('register');
+            session()->flash('error',  'Sorry, Your referral link not found');
+           return redirect('login');
         }
 
         return view('pages.referral.register', compact('cariInvCode'));

@@ -15,9 +15,10 @@ class CreateAgentsTable extends Migration
     {
         Schema::create('agents', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('user_id');
-            $table->enum('roles', [11, 22 ,33])->default(33);
-            $table->string('ref_agent_no')->nullable();
+            $table->integer('user_id')->unsigned();
+            $table->string('ref_agent_name')->unique();
+            $table->decimal('total_deposit', 9, 2)->default(0.00);
+            $table->decimal('total_withdrawal', 9, 2)->default(0.00);
             $table->timestamps();
         });
     }

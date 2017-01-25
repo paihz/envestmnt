@@ -36,8 +36,7 @@
                                 </li>
                             </ul>
                         </li>
-                        <li class="@if(URL::current() == action('InviteController@index') ) active @endif"><a href="{{ action('InviteController@index') }}"><i class="icon mdi mdi-accounts-add"></i><span>Referral</span></a>
-                        <li class="@if(URL::current() == action('DashboardController@agreement') ) active @endif"><a href="{{ action('DashboardController@agreement') }}"><i class="icon mdi mdi-accounts-add"></i><span>Agreement</span></a>
+                        <li class="@if(URL::current() == action('InviteController@index') ) active @endif"><a href="{{ action('InviteController@index') }}"><i class="icon mdi mdi-accounts-add"></i><span>Referral</span></a></li>
                         <li><a href="javascript:void(0)" data-toggle="modal" data-target="#md-footer-primary"><span class="icon mdi mdi-power"></span> Logout</a></li>
                     </ul>
                 </div>

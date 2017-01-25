@@ -126,6 +126,7 @@
                                            placeholder="Confirm password">
                                 </div>
                             </div>
+                            <input type="text" value="{{ $getAgent }}" hidden name="ref_agent">
                             @if ($errors->has('password'))
                                 <span class="text-danger">
                                         <strong>{{ $errors->first('password') }}</strong>
@@ -135,12 +136,12 @@
                             <div class="form-group">
                                 <div id="signatureparent">
                                     <div id="signature"></div>
-                                        <button class="btn btn-space btn-default btn-lg" type="button"
-                                                onclick="$('#signature').jSignature('clear')">Clear
-                                        </button>
-                                        <button class="btn btn-space btn-default btn-lg" type="button" id="btnSave">
-                                            Generate
-                                        </button>
+                                    <button class="btn btn-space btn-default btn-lg" type="button"
+                                            onclick="$('#signature').jSignature('clear')">Clear
+                                    </button>
+                                    <button class="btn btn-space btn-default btn-lg" type="button" id="btnSave">
+                                        Save
+                                    </button>
                                 </div>
                                 <input type="hidden" id="digital_signature" name="digital_signature"/>
                             </div>

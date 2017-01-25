@@ -55,7 +55,9 @@
         $('#btnSave').click(function(){
             var sigData = $('#signature').jSignature('getData','default');
             $('#digital_signature').val(sigData);
+            alert("Your digital signature have been saved ");
         });
+
         // -- ... to here.
 
     })
