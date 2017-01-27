@@ -6,10 +6,9 @@
     "type": "project",
     "require": {
         "php": ">=5.6.4",
-        "laravel/framework": "5.3.*",
-        "laravelcollective/html": "^5.3.0",
+        "laravel/framework": "5.4.*",
+        "laravelcollective/html": "^5.4.0",
         "creativeorange/gravatar": "~1.0",
-        "anhskohbo/no-captcha": "^2.1",
         "yajra/laravel-datatables-oracle": "~6.0",
         "guzzlehttp/guzzle": "^6.2",
         "h4cc/wkhtmltopdf-amd64": "0.12.x",
@@ -18,9 +17,7 @@
     "require-dev": {
         "fzaninotto/faker": "~1.4",
         "mockery/mockery": "0.9.*",
-        "phpunit/phpunit": "~5.0",
-        "symfony/css-selector": "3.1.*",
-        "symfony/dom-crawler": "3.1.*"
+        "phpunit/phpunit": "~5.0"
     },
     "autoload": {
         "classmap": [
@@ -31,9 +28,9 @@
         }
     },
     "autoload-dev": {
-        "classmap": [
-            "tests/TestCase.php"
-        ]
+      "psr-4": {
+        "Tests\\": "tests/"
+      }
     },
     "scripts": {
         "post-root-package-install": [
