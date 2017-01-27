@@ -29,7 +29,7 @@ class DashboardController extends Controller
     {
        // $data["mobile"] = Auth::user()->profile->phone ;
        // $data["location"] = Auth::user()->profile->location ;
-        if(Auth::user()->is_admin){
+        if(Auth::user()->is_admin == 1){
             return redirect('/admin');
         }
 

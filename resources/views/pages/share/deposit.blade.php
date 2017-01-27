@@ -27,7 +27,6 @@
     <div class="be-content">
         <div class="main-content container-fluid">
             <div class="row">
-
                 @if (count($errors) > 0)
                     <div class="alert alert-danger">
                         <strong>Whoops!</strong> There were some problems with your input.<br><br>
@@ -38,7 +37,6 @@
                         </ul>
                     </div>
                 @endif
-
                 <div class="col-md-12">
                     <div class="panel panel-default panel-border-color panel-border-color-primary">
                         <div class="panel-heading panel-heading-divider"><span class="panel-subtitle">Please entered proof and accurate time</span>
@@ -67,7 +65,7 @@
                             <div class="form-group">
                                 <label class="col-sm-3 control-label">Return on investment</label>
                                 <div class="col-sm-6">
-                                    {!! Form::select('roi', [1 => '1&#37; for (  1 + 6 months  )', 2 => '2&#37; for ( 1 + 12 months )', 3 => '3&#37; for ( 1 + 18 months  )'], 1, ['class' => 'form-control']) !!}
+                                    {!! Form::select('roi', [1 => '1% for (  1 + 6 months  )', 2 => '2% for ( 1 + 12 months )', 3 => '3% for ( 1 + 18 months  )'], 1, ['class' => 'form-control']) !!}
                                 </div>
                             </div>
                             <div class="form-group">
